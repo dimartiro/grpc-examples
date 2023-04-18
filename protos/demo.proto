@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option go_package = "github.com/dimartiro/grpc-examples";
+
+package demo;
+
+service Demo {
+  rpc Hello (HelloRequest) returns (HelloReply) {}
+  rpc Append (AppendRequest) returns (AppendReply) {}
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloReply {
+  string message = 1;
+}
+
+message AppendRequest {
+  string value = 1;
+}
+
+message AppendReply {
+  repeated string values = 1;
+}
