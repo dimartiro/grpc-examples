@@ -24,7 +24,7 @@ func main() {
 	//Get client connection
 	client := createClient()
 	//Execute hello call
-	//executeHelloCall(client)
+	executeHelloCall(client)
 	//Execute append call adding 10 elements
 	executeAppendCall(client)
 	//Close server connection when finished
@@ -40,12 +40,9 @@ func executeHelloCall(client pb.DemoClient) {
 }
 
 func executeAppendCall(client pb.DemoClient) {
-	var appendReply *pb.AppendReply
-	var err error
-
 	for i := 1; i <= 10; i++ {
 		log.Printf("Adding element: %d", i)
-		appendReply, err = client.Append(ctx, &pb.AppendRequest{Value: fmt.Sprint(i)})
+		appendReply, err := client.Append(ctx, &pb.AppendRequest{Value: fmt.Sprint(i)})
 		if err != nil {
 			log.Fatalf("Error executing append call: %v", err)
 		}

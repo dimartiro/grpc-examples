@@ -27,7 +27,7 @@ You should not use windows if you want to be a software engineer :D
 
 ## Generate proto stubs
 ```
-make gen-go
+make gen-stubs
 ```
 or execute
 ```
